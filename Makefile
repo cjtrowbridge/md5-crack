@@ -8,12 +8,12 @@ hashpass: hashpass.o md5.o
 # Add recipe to compile md5.o from md5.c below,
 # indented with a tab.
 md5.o: md5.c md5.h
-
+	clang -g -c md5.c -Wall
 
 # Add recipe to compile hashpass.o from hashpass.c below,
 # indented with a tab.
 hashpass.o: hashpass.c md5.h
-
+	clang -g -c hashpass.c -Wall
 
 hashes: hashpass
 	./hashpass rockyou100.txt hashes.txt

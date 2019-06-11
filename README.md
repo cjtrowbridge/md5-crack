@@ -15,21 +15,22 @@ This is the start of a few assignments related to cracking passwords. In this as
 1. Switch over to the Cloud9 terminal and paste the command. Press Enter.
 1. It will create a directory called crack that contains a few starter files.
 1. Use the cd command to change your directory to crack: cd crack
+
 The files are as follows:
 
-md5.c
+md5.c  
 Source code for a function that will compute MD5 hashes.
 
-md5.h
+md5.h  
 Function prototype for the md5() function, plus compiling instructions.
 
-sha256.c
+sha256.c  
 Source code for the SHA256 hashing function. Not needed for this particular assignment, but may be needed in a subsequent one.
 
-sha256.h
+sha256.h  
 Function prototype for the sha256() function, plus compiling instructions.
 
-rockyou100.txt
+rockyou100.txt  
 The top 100 passwords from the rockyou.txt file. No password in this file is longer than 15 characters.
 
 ## Hash a list of passwords
@@ -42,19 +43,19 @@ The md5 function is given a string to hash and its length. (Use strlen to find t
 
 To compile your program, you'll need to assemble it out of three pieces: hashpass.c, md5.c, and a pre-compiled library of cryptography functions:
 
-clang hashpass.c md5.c -o hashpass -l crypto
+clang hashpass.c md5.c -o hashpass -l crypto  
 However, by the end of the assignment you will create a Makefile to automate the build for you.
 
 To run the hashpass program:
 
-./hashpass rockyou100.txt hashes.txt
+./hashpass rockyou100.txt hashes.txt  
 If your program is working correctly, the first five hashes in the output file will be:
 
-e10adc3949ba59abbe56e057f20f883e
-827ccb0eea8a706c4c34a16891f84e7b
-25f9e794323b453885f5181f1b624d0b
-5f4dcc3b5aa765d61d8327deb882cf99
-f25a2fc72690b780b2a14e140ef6a9e0
+e10adc3949ba59abbe56e057f20f883e  
+827ccb0eea8a706c4c34a16891f84e7b  
+25f9e794323b453885f5181f1b624d0b  
+5f4dcc3b5aa765d61d8327deb882cf99  
+f25a2fc72690b780b2a14e140ef6a9e0  
 If you are not getting these hashes, most likely you are not reading in the passwords correctly.
 
 Check to make sure your output file contains 100 lines, one line for each password in the input file. Two common problems are to end up with 99 lines (missed one) or 101 lines (duplicated one of them).
@@ -71,22 +72,22 @@ For both object files, compile with the -g flag (for debugging) and -Wall (to ge
 
 The given Makefile also contains two targets to help with the project. You don't need to change these for now.
 
-hashes
+hashes  
 This target runs the executable as shown in the previous sections. Use it like this: make hashes
 
-clean
+clean  
 This target removes the object files, executable, and hashes.txt file, leaving only the source files. Use this when you want to compile all the source files from scratch. It's not intended to be used every time you want to compile because it negates the advantage of compiling only what has changed. Use it, when necessary, like this: make clean
 
 ## What to Turn In
 You have finished when you can do the following commands to build and run the project:
 
-make clean
-make
-make hashes
+make clean  
+make  
+make hashes  
 Once you have confirmed that everything is working, add and commit your changed files:
 
-git add hashpass.c
-git add Makefile
-git commit
+git add hashpass.c  
+git add Makefile  
+git commit  
 Finally, push your repo to BitBucket and turn in the URL for your repository. Remember to add me (profbbrown) as a collaborator.
 
